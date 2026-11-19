@@ -60,7 +60,7 @@ const menuData = [
       { name: "Vanilla Milkshake", price: "60 LE", desc: "ميلك شيك فانيليا كلاسيكي ولذيذ", img: "https://www.gestationaldiabetes.co.uk/wp-content/uploads/2023/06/thick-vanilla-shake2.jpg" },
       { name: "Chocolate Milkshake", price: "60 LE", desc: "ميلك شيك شوكولاتة كثيف وممتع", img: "https://iambaker.net/wp-content/uploads/2024/06/Chocolate-Shake-2.jpg" },
       { name: "Strawberry Milkshake", price: "60 LE", desc: "ميلك شيك الفراولة الطبيعية اللذيذة", img: "https://www.sharmispassions.com/wp-content/uploads/2012/02/StrawberryMilkshake4.jpg" },
-      { name: "Mango Milkshake", price: "60 LE", desc: "ميلك شيك المانجو الاستوائي الطازج", img: "https://masalahouse.com.sa/wp-content/uploads/2022/09/mango-shake-image.jpeg" },
+      { name: "Mango Milkshake", price: "60 LE", desc: "ميلك شيك المانجو الاستوائي الطازج", img: "https://tse2.mm.bing.net/th/id/OIP.ejUrFG1o-1bRNB31EX7_nwHaHa?r=0&pid=Api&h=220&P=0" },
     ],
   },
   {
