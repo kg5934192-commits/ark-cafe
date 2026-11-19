@@ -1,9 +1,8 @@
-
 import { useState, useEffect, useLayoutEffect, useRef, useMemo } from "react";
- 
+
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop";
- 
+
 const menuData = [
   {
     category: "Coffee (قهوة ساخنة)", id: "coffee", icon: "fa-mug-saucer",
@@ -102,16 +101,16 @@ const menuData = [
   {
     category: "Ice Cream (آيس كريم)", id: "ice-cream", icon: "fa-ice-cream",
     items: [
-      { name: "Vanilla", price: "20 / 40 LE", desc: "آيس كريم فانيليا طبيعي سينجل أو دبل بولة", img: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?q=80&w=600&auto=format&fit=crop" },
-      { name: "Chocolate", price: "20 / 40 LE", desc: "آيس كريم شوكولاتة غني ومميز", img: "https://images.unsplash.com/photo-1620197544618-af5f5366abb3?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-      { name: "Oreo", price: "20 / 40 LE", desc: "آيس كريم ممزوج بقطع الأوريو المقرمشة", img: "https://plus.unsplash.com/premium_photo-1776973055738-fd36dece8ee0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-      { name: "Strawberry", price: "20 / 40 LE", desc: "آيس كريم فراولة طبيعي ومنعش", img: "https://images.unsplash.com/photo-1532678465554-94846274c297?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-      { name: "Mango", price: "20 / 40 LE", desc: "آيس كريم مانجو استوائي لذيذ", img: "https://plus.unsplash.com/premium_photo-1724255862353-c6bc210e3d63?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-      { name: "Blueberry", price: "20 / 40 LE", desc: "آيس كريم التوت الأزرق الطبيعي الغني بالنكهة", img: "https://images.unsplash.com/photo-1600796151015-fade25ec92b1?q=80&w=685&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { name: "Vanilla", price: "25 / 45 LE", desc: "آيس كريم فانيليا طبيعي سينجل أو دبل بولة", img: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?q=80&w=600&auto=format&fit=crop" },
+      { name: "Chocolate", price: "25 / 45 LE", desc: "آيس كريم شوكولاتة غني ومميز", img: "https://images.unsplash.com/photo-1620197544618-af5f5366abb3?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { name: "Oreo", price: "25 / 45 LE", desc: "آيس كريم ممزوج بقطع الأوريو المقرمشة", img: "https://plus.unsplash.com/premium_photo-1776973055738-fd36dece8ee0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { name: "Strawberry", price: "25 / 45 LE", desc: "آيس كريم فراولة طبيعي ومنعش", img: "https://images.unsplash.com/photo-1532678465554-94846274c297?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { name: "Mango", price: "25 / 45 LE", desc: "آيس كريم مانجو استوائي لذيذ", img: "https://plus.unsplash.com/premium_photo-1724255862353-c6bc210e3d63?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { name: "Blueberry", price: "25 / 45 LE", desc: "آيس كريم التوت الأزرق الطبيعي الغني بالنكهة", img: "https://images.unsplash.com/photo-1600796151015-fade25ec92b1?q=80&w=685&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     ],
   },
 ];
- 
+
 const globalCss = `
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Montserrat:wght@500;700;800&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
@@ -123,7 +122,7 @@ const globalCss = `
 .ark-root .card-glass { background: rgba(22, 27, 34, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); }
 .ark-root .card-glass:hover { border-color: rgba(212, 175, 55, 0.5); transform: translateY(-2px); }
 `;
- 
+
 function Logo() {
   const [failed, setFailed] = useState(false);
   return (
@@ -143,7 +142,7 @@ function Logo() {
     </div>
   );
 }
- 
+
 function MenuImage({ src, alt, className }) {
   const [url, setUrl] = useState(src);
   return (
@@ -156,13 +155,15 @@ function MenuImage({ src, alt, className }) {
     />
   );
 }
- 
+
 function MenuCard({ item, onOpen }) {
   return (
     <div
+      dir="rtl"
       onClick={onOpen}
-      className="card-glass rounded-xl p-3 flex space-x-3 space-x-reverse cursor-pointer transition-all duration-300 group"
+      className="card-glass rounded-xl p-3 flex flex-row gap-4 cursor-pointer transition-all duration-300 group"
     >
+      {/* الصورة (أول عنصر = يمين) */}
       <div className="relative w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-gray-900 border border-gray-800">
         <MenuImage
           src={item.img}
@@ -175,7 +176,9 @@ function MenuCard({ item, onOpen }) {
           </span>
         )}
       </div>
-      <div className="flex-1 flex flex-col justify-between py-0.5">
+
+      {/* الكلام (يسار الصورة) */}
+      <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
         <div>
           <div className="flex justify-between items-start mb-1 gap-2">
             <h3 className="font-bold text-sm text-gray-100 group-hover:text-[#d4af37] transition">
@@ -187,15 +190,15 @@ function MenuCard({ item, onOpen }) {
           </div>
           <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">{item.desc}</p>
         </div>
-        <div className="flex items-center text-[11px] text-[#d4af37]/80 font-medium">
+        <div className="flex items-center gap-1 text-[11px] text-[#d4af37]/80 font-medium">
           <span>اضغط للتكبير والتفاصيل</span>
-          <i className="fa-solid fa-chevron-left text-[9px] mr-1" />
+          <i className="fa-solid fa-chevron-left text-[9px]" />
         </div>
       </div>
     </div>
   );
 }
- 
+
 function ItemModal({ selected, onClose }) {
   if (!selected) return null;
   const { cat, item } = selected;
@@ -215,7 +218,7 @@ function ItemModal({ selected, onClose }) {
         >
           <i className="fa-solid fa-xmark text-lg" />
         </button>
-        <MenuImage src={item.img} alt={item.name} className ="ml-3 w-full h-64 object-cover"  />
+        <MenuImage src={item.img} alt={item.name} className="w-full h-64 object-cover" />
         <div className="p-5">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-xl font-bold text-white">{item.name}</h3>
@@ -228,18 +231,18 @@ function ItemModal({ selected, onClose }) {
     </div>
   );
 }
- 
+
 export default function ArkCafeMenu() {
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState(menuData[0].id);
   const [selected, setSelected] = useState(null);
   const [offsets, setOffsets] = useState({ header: 0, stack: 150 });
- 
+
   const headerRef = useRef(null);
   const navRef = useRef(null);
   const tabsRef = useRef({});
   const pendingScroll = useRef(null);
- 
+
   // Filtered data (same logic as original filterMenu)
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
@@ -253,7 +256,7 @@ export default function ArkCafeMenu() {
       })
       .filter(Boolean);
   }, [query]);
- 
+
   // Keep the nav right under the header, whatever its height is
   useLayoutEffect(() => {
     const sync = () => {
@@ -265,7 +268,7 @@ export default function ArkCafeMenu() {
     window.addEventListener("resize", sync);
     return () => window.removeEventListener("resize", sync);
   }, []);
- 
+
   // Highlight the active tab while scrolling
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -277,12 +280,12 @@ export default function ArkCafeMenu() {
     document.querySelectorAll("#ark-menu-container section").forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, [filtered]);
- 
+
   // Keep the active tab visible in the tab bar
   useEffect(() => {
     tabsRef.current[activeCat]?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
   }, [activeCat]);
- 
+
   // Run a scroll that was waiting for the full menu to render
   useEffect(() => {
     if (pendingScroll.current && !query) {
@@ -290,14 +293,14 @@ export default function ArkCafeMenu() {
       pendingScroll.current = null;
     }
   }, [query, filtered]);
- 
+
   // Close modal on Escape
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && setSelected(null);
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
- 
+
   const scrollToCategory = (id) => {
     setActiveCat(id);
     if (query) {
@@ -308,11 +311,11 @@ export default function ArkCafeMenu() {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
   };
- 
+
   return (
     <div dir="rtl" lang="ar" className="ark-root pb-12 min-h-screen">
       <style>{globalCss}</style>
- 
+
       {/* Header: Logo + Search (sticky) */}
       <header
         ref={headerRef}
@@ -332,7 +335,7 @@ export default function ArkCafeMenu() {
           </div>
         </div>
       </header>
- 
+
       {/* Categories nav (sticky right under the header) */}
       <nav
         ref={navRef}
@@ -340,7 +343,7 @@ export default function ArkCafeMenu() {
         style={{ top: offsets.header }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <div className="flex space-x-2 space-x-reverse overflow-x-auto hide-scrollbar py-1">
+          <div className="flex gap-2 overflow-x-auto hide-scrollbar py-1">
             {menuData.map((cat) => {
               const on = cat.id === activeCat;
               return (
@@ -362,10 +365,10 @@ export default function ArkCafeMenu() {
           </div>
         </div>
       </nav>
- 
+
       <main className="max-w-4xl mx-auto px-4 pt-6 space-y-8">
         <div className="bg-gradient-to-r from-[#1c1917] via-[#292524] to-[#1c1917] border border-[#d4af37]/40 rounded-2xl p-4 flex items-center justify-between shadow-xl">
-          <div className="flex items-center space-x-3 space-x-reverse">
+          <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full gold-bg flex items-center justify-center text-black font-bold">
               <i className="fa-solid fa-mug-hot text-lg" />
             </div>
@@ -378,7 +381,7 @@ export default function ArkCafeMenu() {
             المنيو الرقمي
           </span>
         </div>
- 
+
         <div id="ark-menu-container" className="space-y-10">
           {filtered.length === 0 ? (
             <div className="text-center py-12 text-gray-500">
@@ -394,7 +397,7 @@ export default function ArkCafeMenu() {
                   id={cat.id}
                   style={{ scrollMarginTop: offsets.stack }}
                 >
-                  <div className="flex items-center space-x-3 space-x-reverse mb-4 pb-2 border-b border-[#d4af37]/30">
+                  <div className="flex items-center gap-3 mb-4 pb-2 border-b border-[#d4af37]/30">
                     <i className={`fa-solid ${cat.icon} text-lg text-[#d4af37]`} />
                     <h2 className="text-lg font-bold text-white tracking-wide">{cat.category}</h2>
                   </div>
@@ -413,9 +416,9 @@ export default function ArkCafeMenu() {
           )}
         </div>
       </main>
- 
+
       <ItemModal selected={selected} onClose={() => setSelected(null)} />
- 
+
       <footer className="mt-16 border-t border-gray-800 text-center py-6 text-gray-500 text-xs">
         <p className="mb-1">
           جميع الحقوق محفوظة © 2026 - <span className="gold-gradient font-bold">The Ark Café</span>
@@ -425,4 +428,3 @@ export default function ArkCafeMenu() {
     </div>
   );
 }
- 
