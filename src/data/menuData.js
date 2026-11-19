@@ -11,7 +11,7 @@ const menuData = [
       { name: "Macchiato", price: "40 / 45 LE", desc: "إسبريسو مضاف إليه لمسة من رغوة الحليب الناعمة", img: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=600&auto=format&fit=crop" },
       { name: "Cappuccino", price: "60 LE", desc: "كابوتشينو كلاسيكي برغوة غنية وطعم متوازن", img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=600&auto=format&fit=crop" },
       { name: "Caffè Latte", price: "50 LE", desc: "قهوة إسبريسو مع حليب مبخر وطبقة خفيفة من الفوم", img: "https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop" },
-      { name: "Caffè Mocha", price: "70 LE", desc: "مزيج الإسبريسو الرائع مع الشوكولاتة الغنية والحليب", img: "https://www.everyday-delicious.com/wp-content/uploads/2021/05/caffee-mocha-kawa-mokka-everyday-delicious-1-640x640.jpg" },
+      { name: "Caffè Mocha", price: "70 LE", desc: "مزيج الإسبريسو الرائع مع الشوكولاتة الغنية والحليب", img: "https://www.everyday-delicious.com/wp-content/uploads/2021/05/caffee-mocha-kawa-mokka-everyday-delicious-1-640x640.jpgs" },
       { name: "Flat White", price: "65 LE", desc: "إسبريسو مزود بـ Microfoam كريمي ونقي", img: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?q=80&w=600&auto=format&fit=crop" },
       { name: "Affogato", price: "50 LE", desc: "بولات آيس كريم فانيليا مغطاة بجرعة إسبريسو ساخن", img: "https://images.unsplash.com/photo-1638543284847-3a6bed3e1689?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
       { name: "Espresso Con Panna", price: "50 LE", desc: "إسبريسو غني يعلوه الكريمة المخفوقة الفاخرة", img: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=600&auto=format&fit=crop" },
